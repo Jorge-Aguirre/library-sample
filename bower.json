@@ -1,0 +1,11 @@
+{
+	"name": "library-sample",
+	"description": "A library sample project using angular 1.6.x",
+	"version": "0.0.0",
+	"homepage": "https://github.com/Jorge-Aguirre/libray-sample",
+	"private": true,
+	"dependencies": {
+		"angular": "1.6.x",
+		"bootstrap": "3.3.x"
+	}
+}
