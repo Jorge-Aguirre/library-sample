@@ -28,7 +28,10 @@ angular.
 		};
 
 		this.getBooksByAuthor = function getBooksByAuthor(idAuthor) {
-			return self.bookList;
+			var subset = self.bookList.filter(function (book) {
+				return book.authorId == idAuthor
+			});
+			return subset;
 		}
 
 		this.saveBook = function save(book) {

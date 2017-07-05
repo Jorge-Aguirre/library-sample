@@ -36,6 +36,7 @@ angular.
 
 				this.saveBook = function () {
 					var book = self.book;
+					book.authorId = authorId;
 
 					var ID = function () {
 					  return '_' + Math.random().toString(36).substr(2, 9);
