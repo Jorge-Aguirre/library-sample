@@ -1,13 +1,70 @@
 <!doctype html>
 
-<html lang="en" ng-app>
+<html lang="en" ng-app="librarySampleApp">
 	<head>
 		<meta charset="utf-8">
 		<title>Authors</title>
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="app.css">
+		<script src="bower_components/jquery/dist/jquery.js"></script>
 		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="app.js"></script>
 	</head>
 	<body>
-		Authors
+		<div class="container" ng-controller="AuthorListController">
+		<div class="row">
+			<div class="page-header">
+				<h1>Authors</h1>
+			</div>
+		</div>
+		<div class="row">
+			<table id="author-list" class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Last Name</th>
+						<th>Nationality</th>
+						<th>Actions</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="author in authors">
+						<td>{{author.name}}</td>
+						<td>{{author.lastName}}</td>
+						<td>{{author.nationality}}</td>
+						<td>
+							<button class="btn btn-warning btn-small" data-toggle="modal" data-target="#authorForm" ng-click="editAuthor(author)">
+								<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+							<button class="btn btn-danger btn-small" ng-click="removeAuthor(author)">
+								<i class="glyphicon glyphicon-trash"></i> 
+							</button>
+						</td>
+						<td>Books</td>
+					</tr>
+				</tbody>
+			</table>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#authorForm" ng-click="addAuthor()">Add Author</button>
+		</div>
+
+
+		<!-- Add or Edit Author modal -->
+		<div class="modal fade" id="authorForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-show="displayForm">
+  			<div class="modal-dialog" role="document">
+    			<div class="modal-content">      
+      				<div class="modal-body">
+ 		  				<div class="form-group">  <input type="text" ng-model="author.name"  class="form-control" placeholder="Name"/></div>
+          				<div class="form-group"><input type="text" ng-model="author.lastName"  class="form-control" placeholder="Last Name"/></div>
+          				<div class="form-group"> <input type="text" ng-model="author.nationality"  class="form-control" placeholder="Nationality"/></div>          
+      				</div>
+      				<div class="modal-footer">       
+     	 				<button class="btn btn-primary" ng-click="saveAuthor()">Save</button>
+     	 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      				</div>
+    			</div>
+  			</div>
+		</div>
 	</body>
 </html>
