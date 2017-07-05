@@ -1,3 +1,4 @@
 angular.module('bookList', [
-	'ngRoute'	
+	'ngRoute',
+	'authorService'
 ]);

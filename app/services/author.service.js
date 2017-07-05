@@ -3,6 +3,7 @@ angular.
 	service('Author', function () {
 		var self = this;
 		this.authorList = [];
+		this.bookList = [];
 
 		this.getAll = function getAll () {
 			return self.authorList;
@@ -19,5 +20,27 @@ angular.
 
 		this.remove = function remove(author) {
 			self.authorList.splice(self.authorList.indexOf(author), 1);
+		};
+
+		this.getById = function getById(id) {
+			var index = self.authorList.findIndex(e => e.Id === id);
+			return self.authorList[index];
+		};
+
+		this.getBooksByAuthor = function getBooksByAuthor(idAuthor) {
+			return self.bookList;
+		}
+
+		this.saveBook = function save(book) {
+			self.bookList.push(book);
+		};
+
+		this.editBook = function edit(book) {
+			var index = self.bookList.indexOf(book);
+			self.bookList[index] = book;
+		};
+
+		this.removeBook = function remove(book) {
+			self.bookList.splice(self.bookList.indexOf(book), 1);
 		};
 	});

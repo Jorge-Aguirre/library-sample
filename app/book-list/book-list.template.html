@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="page-header">
-			<h1>{{$ctrl.authorId}}: Books</h1>
+			<h1>{{$ctrl.authorName}}: Books</h1>
 		</div>
 	</div>
 	<div class="row">
@@ -39,8 +39,8 @@
     		<div class="modal-content">      
       			<div class="modal-body">
  		  			<div class="form-group">  <input type="text" ng-model="$ctrl.book.name"  class="form-control" placeholder="Name"/></div>
-          			<div class="form-group"><input type="text" ng-model="$ctrl.book.year"  class="form-control" placeholder="Last Name"/></div>
-          			<div class="form-group"> <input type="text" ng-model="$ctrl.book.editorial"  class="form-control" placeholder="Nationality"/></div>          
+          			<div class="form-group"><input type="text" ng-model="$ctrl.book.year"  class="form-control" placeholder="Year"/></div>
+          			<div class="form-group"> <input type="text" ng-model="$ctrl.book.editorial"  class="form-control" placeholder="Editorial"/></div>          
       			</div>
       			<div class="modal-footer">       
      	 			<button class="btn btn-primary" ng-click="$ctrl.saveBook()">Save</button>
