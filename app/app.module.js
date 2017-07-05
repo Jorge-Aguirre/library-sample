@@ -1,1 +1,1 @@
-angular.module('librarySampleApp', ['ngRoute']);
+angular.module('librarySampleApp', ['ngRoute', 'authorList', 'bookList']);

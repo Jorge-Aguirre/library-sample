@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row">
+		<div class="page-header">
+			<h1>{{$ctrl.authorId}}: Books</h1>
+		</div>
+	</div>
+	<div class="row">
+		<table id="author-list" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Year</th>
+					<th>Editorial</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="book in $ctrl.books">
+					<td>{{book.name}}</td>
+					<td>{{book.year}}</td>
+					<td>{{book.editorial}}</td>
+					<td>
+						<button class="btn btn-warning btn-small" data-toggle="modal" data-target="#bookForm" ng-click="$ctrl.editBook(book)">
+							<i class="glyphicon glyphicon-pencil"></i>
+						</button>
+						<button class="btn btn-danger btn-small" ng-click="$ctrl.removeBook(book)">
+							<i class="glyphicon glyphicon-trash"></i> 
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookForm" ng-click="$ctrl.addBook()">Add Book</button>
+	</div>
+
+	<!-- Add or Edit Author modal -->
+	<div class="modal fade" id="bookForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-show="$ctrl.displayForm">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">      
+      			<div class="modal-body">
+ 		  			<div class="form-group">  <input type="text" ng-model="$ctrl.book.name"  class="form-control" placeholder="Name"/></div>
+          			<div class="form-group"><input type="text" ng-model="$ctrl.book.year"  class="form-control" placeholder="Last Name"/></div>
+          			<div class="form-group"> <input type="text" ng-model="$ctrl.book.editorial"  class="form-control" placeholder="Nationality"/></div>          
+      			</div>
+      			<div class="modal-footer">       
+     	 			<button class="btn btn-primary" ng-click="$ctrl.saveBook()">Save</button>
+     	 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+</div>

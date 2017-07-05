@@ -8,8 +8,8 @@ angular.
 				when('/authors', {
 					template: '<author-list></author-list>'
 				}).
-				when('/authors/:authorId/books', {
+				when('/authors/:authorId', {
 					template: '<book-list></book-list>'
 				}).
-				otherwise('/authors');
+				otherwise({ redirectTo: '/authors' });
 		}]);
