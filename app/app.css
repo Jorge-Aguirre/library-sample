@@ -1,10 +1,7 @@
 #author-list td, #author-list th {
 	text-align: center;
 }
-.comprado-true {
-	text-decoration: line-through;
-	color: red;
-}
+
 .page-header {
     padding-bottom: 50px;
 }
